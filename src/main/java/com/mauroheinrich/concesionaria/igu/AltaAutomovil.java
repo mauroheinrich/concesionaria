@@ -35,12 +35,11 @@ public class AltaAutomovil extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONCESIONARIA JM");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MAURO\\Downloads\\CONCESIONARIA\\pngegg (1).png")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,21 +77,38 @@ public class AltaAutomovil extends javax.swing.JFrame {
 
         txtPatente.setFont(new java.awt.Font("Microsoft YaHei", 0, 18)); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MAURO\\Downloads\\CONCESIONARIA\\pngegg (1).png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Proyectos Java\\concesionaria\\src\\main\\java\\com\\mauroheinrich\\concesionaria\\igu\\img\\autoss.png")); // NOI18N
 
+        btnLimpiar.setBackground(java.awt.SystemColor.textHighlight);
         btnLimpiar.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
-        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
 
+        btnAgregar.setBackground(java.awt.SystemColor.textHighlight);
         btnAgregar.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
-        btnAgregar.setText("AGREGAR");
+        btnAgregar.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
+            }
+        });
+
+        btnVolver.setBackground(java.awt.SystemColor.textHighlight);
+        btnVolver.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        btnVolver.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnVolver.setText("Volver");
+        btnVolver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -126,11 +142,12 @@ public class AltaAutomovil extends javax.swing.JFrame {
                             .addComponent(txtMotor, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                             .addComponent(txtPatente)
                             .addComponent(txtCantPuertas))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimpiar)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(58, 58, 58))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -155,19 +172,20 @@ public class AltaAutomovil extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(txtMotor, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMotor)
+                    .addComponent(btnLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPatente))
+                    .addComponent(txtPatente)
+                    .addComponent(btnAgregar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnLimpiar)
-                        .addComponent(btnAgregar)))
+                        .addComponent(btnVolver)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -212,12 +230,17 @@ public class AltaAutomovil extends javax.swing.JFrame {
       txtCantPuertas.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
+
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

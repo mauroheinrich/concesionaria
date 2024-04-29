@@ -1,10 +1,11 @@
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\igu\AltaAutomovil.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\logica\Automovil.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\IllegalOrphanException.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\NonexistentEntityException.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\Concesionaria.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\PreexistingEntityException.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\logica\Controladora.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\igu\Principal.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\ControladoraPersistencia.java
-C:\Users\MAURO\Documents\NetBeansProjects\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\AutomovilJpaController.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\igu\ConsultaAutomovil.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\AutomovilJpaController.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\Concesionaria.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\NonexistentEntityException.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\logica\Automovil.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\ControladoraPersistencia.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\IllegalOrphanException.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\igu\Principal.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\logica\Controladora.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\igu\AltaAutomovil.java
+C:\Proyectos Java\concesionaria\src\main\java\com\mauroheinrich\concesionaria\persistencia\exceptions\PreexistingEntityException.java
