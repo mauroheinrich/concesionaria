@@ -2,6 +2,8 @@
 package com.mauroheinrich.concesionaria.igu;
 
 import com.mauroheinrich.concesionaria.logica.Controladora;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 
 public class AltaAutomovil extends javax.swing.JFrame {
@@ -219,6 +221,13 @@ public class AltaAutomovil extends javax.swing.JFrame {
          int cantPuertas = Integer.parseInt(txtCantPuertas.getText());
         
          control.agregarAutomovil(modelo, marca, motor, color, patente, cantPuertas);
+         mostrarMensaje("Alta realizada correctamente", "Info", "Error");
+         
+         ConsultaAutomovil consul = new ConsultaAutomovil();
+         consul.setVisible(true);
+         consul.setLocationRelativeTo(null);
+         
+         this.dispose();
          
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -239,7 +248,19 @@ public class AltaAutomovil extends javax.swing.JFrame {
     principal.setLocationRelativeTo(null); // Centra la ventana principal en la pantalla
     }//GEN-LAST:event_btnVolverActionPerformed
 
-   
+   public void mostrarMensaje ( String mensaje, String tipo, String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+            if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if (tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+            }
+            JDialog dialog = optionPane.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+    
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
