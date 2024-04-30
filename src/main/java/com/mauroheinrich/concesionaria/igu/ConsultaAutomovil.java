@@ -1,10 +1,13 @@
 
 package com.mauroheinrich.concesionaria.igu;
 
+import com.mauroheinrich.concesionaria.logica.Automovil;
+import com.mauroheinrich.concesionaria.logica.Controladora;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAutomovil extends javax.swing.JFrame {
-
+    Controladora control = new Controladora();
     
     public ConsultaAutomovil() {
         initComponents();
@@ -22,7 +25,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         tablaAutos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -62,11 +65,16 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         jButton2.setText("Modificar");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton3.setBackground(java.awt.SystemColor.textHighlight);
-        jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton3.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
-        jButton3.setText("Volver");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVolver.setBackground(java.awt.SystemColor.textHighlight);
+        btnVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnVolver.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnVolver.setText("Volver");
+        btnVolver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -85,7 +93,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(36, 36, 36))
         );
         jPanel2Layout.setVerticalGroup(
@@ -99,7 +107,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -151,13 +159,21 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+       // Cerrar la ventana actual (ConsultaAutomovil) y volver a la ventana principal (Principal)
+    this.dispose(); // Cierra la ventana actual
+    Principal principal = new Principal(); // Crea una nueva instancia de la ventana principal
+    principal.setVisible(true); // Muestra la ventana principal
+    principal.setLocationRelativeTo(null); // Centra la ventana principal en la pantalla
+    }//GEN-LAST:event_btnVolverActionPerformed
+
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -176,9 +192,22 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
     
             };
        //pone titulos a las columnas
-       String titulos[]= {"modelo", "marca", "motor", "color", "patente","cantPuertas"};
+       String titulos[]= {"ID","Modelo", "Marca", "Motor", "Color", "Patente","Puertas"};
        modeloTabla.setColumnIdentifiers(titulos);
        
+       // traer los autos desde la base de datos
+       List <Automovil> listaAutomoviles = control.traerAutos();
+       
+       //setear los datos en la tabla
+       if(listaAutomoviles !=null){
+           for (Automovil auto : listaAutomoviles){
+               Object[] objeto = {auto.getId(),auto.getModelo(),auto.getMarca(),
+                   auto.getMotor(),auto.getColor(),auto.getPatente(),auto.getCantPuertas()};
+               
+               modeloTabla.addRow(objeto);
+           }
+       }
+         
        tablaAutos.setModel(modeloTabla);
         }
     }

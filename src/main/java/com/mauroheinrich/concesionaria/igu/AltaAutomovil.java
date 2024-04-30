@@ -231,7 +231,11 @@ public class AltaAutomovil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
+       // Cerrar la ventana actual (ConsultaAutomovil) y volver a la ventana principal (Principal)
+    this.dispose(); // Cierra la ventana actual
+    Principal principal = new Principal(); // Crea una nueva instancia de la ventana principal
+    principal.setVisible(true); // Muestra la ventana principal
+    principal.setLocationRelativeTo(null); // Centra la ventana principal en la pantalla
     }//GEN-LAST:event_btnVolverActionPerformed
 
    

@@ -17,4 +17,5 @@ com\mauroheinrich\concesionaria\logica\Controladora.class
 com\mauroheinrich\concesionaria\igu\ConsultaAutomovil.class
 com\mauroheinrich\concesionaria\persistencia\ControladoraPersistencia.class
 com\mauroheinrich\concesionaria\igu\AltaAutomovil$3.class
+com\mauroheinrich\concesionaria\igu\ConsultaAutomovil$3.class
 com\mauroheinrich\concesionaria\igu\Principal$2.class

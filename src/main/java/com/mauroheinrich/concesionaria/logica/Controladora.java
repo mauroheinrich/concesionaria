@@ -2,6 +2,7 @@
 package com.mauroheinrich.concesionaria.logica;
 
 import com.mauroheinrich.concesionaria.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 public class Controladora {
 
@@ -20,6 +21,13 @@ public class Controladora {
         controlPersis.agregarAutomovil(auto);
         
     }
+
+    public List<Automovil> traerAutos() {
+       return  controlPersis.traerAutos();
+    
+    }
+
+   
 
    
 }
