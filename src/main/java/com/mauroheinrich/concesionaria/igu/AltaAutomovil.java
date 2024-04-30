@@ -219,6 +219,7 @@ public class AltaAutomovil extends javax.swing.JFrame {
          int cantPuertas = Integer.parseInt(txtCantPuertas.getText());
         
          control.agregarAutomovil(modelo, marca, motor, color, patente, cantPuertas);
+         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

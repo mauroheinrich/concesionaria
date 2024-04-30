@@ -4,6 +4,8 @@ package com.mauroheinrich.concesionaria.igu;
 import com.mauroheinrich.concesionaria.logica.Automovil;
 import com.mauroheinrich.concesionaria.logica.Controladora;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAutomovil extends javax.swing.JFrame {
@@ -23,8 +25,8 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaAutos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,17 +55,22 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaAutos);
 
-        jButton1.setBackground(java.awt.SystemColor.textHighlight);
-        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton1.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
-        jButton1.setText("Eliminar");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminar.setBackground(java.awt.SystemColor.textHighlight);
+        btnEliminar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnEliminar.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(java.awt.SystemColor.textHighlight);
-        jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton2.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
-        jButton2.setText("Modificar");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnModificar.setBackground(java.awt.SystemColor.textHighlight);
+        btnModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnModificar.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        btnModificar.setText("Modificar");
+        btnModificar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnVolver.setBackground(java.awt.SystemColor.textHighlight);
         btnVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -84,13 +91,13 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(btnModificar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -103,9 +110,9 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
                 .addGap(0, 16, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
+                .addComponent(btnEliminar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnModificar)
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -167,13 +174,52 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
     principal.setLocationRelativeTo(null); // Centra la ventana principal en la pantalla
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       
+        //controlar que la tabla no este vacia
+        if(tablaAutos.getRowCount()>0){
+            //valido que se haya seleccionado un registro
+            if (tablaAutos.getSelectedRow()!=-1){
+                
+                //obtener la id del auto a borrar
+                int idAuto = Integer.parseInt(String.valueOf(tablaAutos.getValueAt(tablaAutos.getSelectedRow(),0)));
+                
+                control.borrarAuro(idAuto);
+                mostrarMensaje("Auto borrado exitosamente", "Info", "Borrado Exitoso");
+                cargarTabla();
+            }
+            else{
+            mostrarMensaje("No seleccionó ningun registro para eliminar", "Info", "Error al eliminar");
+            
+            }
+        }
+        else{
+        mostrarMensaje("Tabla vacia: no se puede eliminar", "Error", "Error al eliminar");
+        
+        }
+        
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+    public void mostrarMensaje ( String mensaje, String tipo, String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+            if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if (tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+            }
+            JDialog dialog = optionPane.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+    
+    }
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

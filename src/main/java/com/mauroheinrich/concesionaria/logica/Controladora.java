@@ -27,6 +27,11 @@ public class Controladora {
     
     }
 
+    public void borrarAuro(int idAuto) {
+      controlPersis.borrarAuto(idAuto);
+    
+    }
+
    
 
    
