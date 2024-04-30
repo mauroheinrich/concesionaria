@@ -71,6 +71,11 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         btnModificar.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
         btnModificar.setText("Modificar");
         btnModificar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setBackground(java.awt.SystemColor.textHighlight);
         btnVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -200,6 +205,36 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if(tablaAutos.getRowCount()>0){
+            //valido que se haya seleccionado un registro
+            if (tablaAutos.getSelectedRow()!=-1){
+                
+                //codigo para modificar
+                 //obtener la id del auto a modificar
+                int idAuto = Integer.parseInt(String.valueOf(tablaAutos.getValueAt(tablaAutos.getSelectedRow(),0)));
+                ModifAutomovil modif = new ModifAutomovil(idAuto);
+                modif.setVisible(true);
+                modif.setLocationRelativeTo(null);
+                
+                
+                this.dispose();
+        }
+            else{
+                mostrarMensaje("No seleccionó ningun registro para modificar", "Info", "Error al modificar");
+
+                }
+        }
+        else{
+        mostrarMensaje("Tabla vacia: no se puede modificar", "Error", "Error al modificar");
+        
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
     public void mostrarMensaje ( String mensaje, String tipo, String titulo){
         JOptionPane optionPane = new JOptionPane(mensaje);
             if(tipo.equals("Info")){
